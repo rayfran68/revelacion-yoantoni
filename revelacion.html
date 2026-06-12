@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡La Gran Revelación de Género!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-neutral: #f5f5f7; /* Fondo grisáceo limpio de la referencia */
+        --dbz-orange: #ff6b00; /* Naranja característico para fechas/detalles */
+        --dbz-blue: #003366; /* Azul elegante para títulos de sección */
+        --dbz-pink: #e87ea1; /* Rosa sutil para confirmación */
+        --text-dark: #2c3e50;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #111; /* Fondo oscuro exterior por si se ve en PC */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      /* Contenedor simulando la pantalla del teléfono móvil */
+      .invitation-container {
+        width: 100%;
+        max-width: 450px;
+        background-color: var(--bg-neutral);
+        min-height: 100vh;
+        padding: 2.5rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow-x: hidden;
+      }
+      /* Animación sutil de respiración para el botón de música */
+      .audio-button {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, var(--dbz-orange), #ff8f00);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .audio-button:active {
+        transform: scale(0.9);
+      }
+      .intro-text {
+        font-family: "Cinzel", serif;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        color: var(--text-dark);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      /* Contenedor de Goku y Pan en la cabecera */
+      .header-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      .header-images img {
+        width: 45%;
+        max-width: 160px;
+        height: auto;
+        object-fit: contain;
+      }
+      .parents-names {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 2.2rem;
+        color: var(--dbz-orange);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+      .poem-box {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: var(--text-dark);
+        padding: 0 1rem;
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+      }
+      .poem-box strong {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      /* Sección de la Fecha estructurada en Grid */
+      .date-section {
+        width: 100%;
+        margin-bottom: 2.5rem;
+      }
+      .date-section .title {
+        font-family: "Cinzel", serif;
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+      .grid-date {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 0.5rem 0;
+        margin: 0 1rem;
+      }
+      .date-element {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        letter-spacing: 1px;
+      }
+      .big-day {
+        font-size: 3.5rem;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        color: var(--dbz-orange);
+        padding: 0 1.5rem;
+        line-height: 1;
+      }
+      /* Bloques informativos (Dirección y Confirmación) */
+      .info-block {
+        width: 100%;
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .info-block.blue .block-title {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.8rem;
+        color: var(--dbz-blue);
+        margin-bottom: 0.5rem;
+      }
+      .info-block.pink .block-title {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.8rem;
+        color: var(--dbz-pink);
+        margin-bottom: 0.5rem;
+      }
+      .block-desc {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-dark);
+        max-width: 300px;
+        margin-bottom: 1rem;
+      }
+      /* Botones de acción */
+      .action-button {
+        display: inline-block;
+        padding: 0.7rem 1.8rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .btn-blue {
+        background-color: var(--dbz-blue);
+        color: white;
+      }
+      .btn-pink {
+        background-color: var(--dbz-pink);
+        color: white;
+      }
+      .action-button:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      /* Decoración de imágenes internas de apoyo */
+      .inline-decor-img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 1rem;
+        object-fit: contain;
+      }
+
+      /* =============================================
+         NUEVA SECCIÓN: DINÁMICA NIÑO O NIÑA Y DRESS CODE
+         ============================================= */
+      .gender-guess-section {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0 0.5rem;
+      }
+      .gender-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 2rem;
+      }
+      .gender-option {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .gender-title {
+        font-family: "Cinzel", serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #555;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+      }
+      .gender-img {
+        width: 100%;
+        max-width: 140px;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+      }
+      .gender-action-text {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border-bottom: 1px dashed #aaa;
+        padding-bottom: 2px;
+      }
+      .dress-code-box {
+        margin-top: 1.5rem;
+        border-top: 1px double #ccc;
+        padding-top: 1.5rem;
+        width: 100%;
+      }
+      .dress-code-title {
+        font-family: "Cinzel", serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--dbz-orange);
+        margin-bottom: 0.4rem;
+      }
+      .dress-code-desc {
+        font-size: 0.8rem;
+        color: var(--text-dark);
+        line-height: 1.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invitation-container">
+      <button
+        class="audio-button"
+        onclick="toggleMusic()"
+        title="Reproducir música"
+      >
+        ▶
+      </button>
+
+      <div class="intro-text">¡LA ESPERA ESTÁ POR TERMINAR!</div>
+      <div class="header-images">
+        <img src="goku.png" alt="Bebé Goku" />
+        <img src="pan.png" alt="Bebé Pan" />
+      </div>
+
+      <div class="parents-names">Yoantoni & Reina</div>
+
+      <div class="poem-box">
+        nuestro bebe está en camino<br /><br />
+        <strong>¿NIÑO O NIÑA?</strong> ¡VEN A REVELARLO JUNTO A NOSOTROS!
+      </div>
+
+      <div class="date-section">
+        <div class="title">DÍA</div>
+        <div class="grid-date">
+          <div class="date-element">JUNIO</div>
+          <div class="big-day">20</div>
+          <div class="date-element">17:00 HRS</div>
+        </div>
+      </div>
+
+      <div class="info-block blue">
+        <img src="goku.png" class="inline-decor-img" alt="Ubicación" />
+        <div class="block-title">Dirección</div>
+        <div class="block-desc">
+          Via La Vela-Muaco, La Vela de Coro 4132, Falcón
+        </div>
+        <a
+          href="https://maps.google.com"
+          target="_blank"
+          class="action-button btn-blue"
+          >Ver Ubicación</a
+        >
+      </div>
+
+      <div class="info-block pink">
+        <div class="block-title">Confirmación</div>
+        <div class="block-desc">
+          Nos encantaría saber que nos acompañarás. Permítenos preparar los
+          detalles confirmando aquí.
+        </div>
+        <a
+          href="https://wa.me/4121203193?text=¡Hola!+Confirmo+mi+asistencia+a+la+revelación+de+género."
+          target="_blank"
+          class="action-button btn-pink"
+          >Confirmar Asistencia</a
+        >
+      </div>
+
+      <div class="gender-guess-section">
+        <div class="gender-grid">
+          <div class="gender-option">
+            <span class="gender-title">Si crees que será niño</span>
+            <img src="goku.png" class="gender-img" alt="Goku Bebé" />
+            <span class="gender-action-text">Traer pañales</span>
+          </div>
+
+          <div class="gender-option">
+            <span class="gender-title">Si crees que será niña</span>
+            <img src="pan.png" class="gender-img" alt="Pan Bebé" />
+            <span class="gender-action-text">Traer toallas</span>
+          </div>
+        </div>
+
+        <div class="dress-code-box">
+          <div class="dress-code-title">DRESS CODE: BLANCO</div>
+          <div class="dress-code-desc">
+            Te invitamos a venir vestido/a con una prenda blanca para la gran celebración.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script {="" automatic="" background="" core="" loop="" music="" plays="" }="">
+      // Instancia del objeto Audio apuntando al fichero en el mismo directorio
+      const audio = new Audio("music.mp3");
+      audio.loop = true;
+
+      let playing = false;
+      const btn = document.querySelector(".audio-button");
+
+      // Core para ejecutar la reproducción del audio
+      function playAudio() {
+        if (!playing) {
+          audio
+            .play()
+            .then(() => {
+              playing = true;
+              btn.innerText = "⏸";
+              // Limpieza inmediata de los fallbacks interactivos al tener éxito
+              removeInteractionListeners();
+            })
+            .catch((error) => {
+              console.log("Autoplay restringido por políticas del navegador. Esperando interacción de usuario.");
+            });
+        }
+      }
+
+      function pauseAudio() {
+        if (playing) {
+          audio.pause();
+          playing = false;
+          btn.innerText = "▶";
+        }
+      }
+
+      // Handler para el control manual mediante el botón
+      function toggleMusic() {
+        if (!playing) {
+          playAudio();
+        } else {
+          pauseAudio();
+        }
+      }
+
+      // Inicialización OnReady (Mapeado a DOMContentLoaded)
+      window.addEventListener("DOMContentLoaded", () => {
+        playAudio();
+      });
+
+      // Fallbacks de interacción: Se disparan si el navegador bloquea el trigger inicial del DOM
+      function initAudioOnInteraction() {
+        playAudio();
+      }
+
+      window.addEventListener("click", initAudioOnInteraction);
+      window.addEventListener("touchstart", initAudioOnInteraction);
+      window.addEventListener("scroll", initAudioOnInteraction);
+
+      // Desvincular listeners para prevenir fugas de memoria y llamadas redundantes
+      function removeInteractionListeners() {
+        window.removeEventListener("click", initAudioOnInteraction);
+        window.removeEventListener("touchstart", initAudioOnInteraction);
+        window.removeEventListener("scroll", initAudioOnInteraction);
+      }
+    </script>
+  </body>
+</html>
