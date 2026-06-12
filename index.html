@@ -363,7 +363,7 @@
       <div class="block-desc">
         Via La Vela-Muaco, La Vela de Coro 4132, Falcón
       </div>
-      <a href="https://maps.app.goo.gl/0" target="_blank" class="action-button btn-blue">Ver Ubicación</a>
+      <a href="https://maps.google.com/?q=Via+La+Vela-Muaco+La+Vela+de+Coro+Falcon" target="_blank" class="action-button btn-blue">Ver Ubicación</a>
     </div>
 
     <div class="info-block pink">
@@ -371,7 +371,7 @@
       <div class="block-desc">
         Nos encantaría saber que nos acompañarás. Confirma aquí:
       </div>
-      <a href="https://wa.me/4121203193?text=¡Hola! Confirmo mi asistencia a la revelación de género." target="_blank" class="action-button btn-pink">Confirmar</a>
+      <a href="https://wa.me/4121203193?text=%C2%A1Hola!+Confirmo+mi+asistencia+a+la+revelaci%C3%B3n+de+g%C3%A9nero." target="_blank" class="action-button btn-pink">Confirmar</a>
     </div>
 
     <div class="gender-guess-section">
@@ -418,6 +418,7 @@
       }
     }
 
+    // Corregido el enlace de Google Maps a uno genérico que no falle
     function pauseAudio() {
       if (playing) {
         audio.pause();
@@ -436,7 +437,6 @@
 
     window.addEventListener("DOMContentLoaded", playAudio);
     
-    // Mejor compatibilidad con iPhone para el primer "toque"
     function initAudioOnInteraction() {
       playAudio();
     }
@@ -447,7 +447,7 @@
       window.removeEventListener("touchstart", initAudioOnInteraction);
       window.removeEventListener("click", initAudioOnInteraction);
     }
-  </style>
+  </script>
 
 </body>
 </html>
